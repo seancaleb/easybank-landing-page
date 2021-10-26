@@ -1,0 +1,111 @@
+.articles {
+  &-full {
+    background-color: $v-light-gray;
+    @include wrapper(9rem, 9rem);
+
+    @include respond(lg) {
+      @include wrapper(9.5rem, 8rem);
+    }
+  }
+
+  & h2 {
+    margin-bottom: 4rem;
+
+    @include respond(lg) {
+      text-align: left;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 3rem;
+
+    @include respond(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 68.5em) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__item {
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.4rem 1rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    max-width: 50rem;
+    margin-inline: auto;
+    cursor: pointer;
+    background-color: $white;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    @include respond(lg) {
+      &:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0rem 0.4rem 1rem rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &__img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 20rem;
+
+    @include respond(sm) {
+      min-height: 30rem;
+    }
+
+    @media screen and (min-width: 68.5em) {
+      min-height: 20rem;
+    }
+
+    &--1 {
+      background-image: url("/images/image-currency.jpg");
+    }
+    &--2 {
+      background-image: url("/images/image-restaurant.jpg");
+    }
+    &--3 {
+      background-image: url("/images/image-plane.jpg");
+    }
+    &--4 {
+      background-image: url("/images/image-confetti.jpg");
+    }
+  }
+  &__content {
+    @include flex(column, flex-start, $gap: 1.8rem);
+    padding: 3rem 3rem 4.5rem;
+
+    @include respond(lg) {
+      padding: 3rem 2.5rem;
+    }
+
+    & h4 {
+      margin-bottom: 0rem;
+      text-align: left;
+      transition: color 0.3s ease-in-out;
+
+      @include respond(lg) {
+        &:hover {
+          color: $lime-green;
+        }
+      }
+    }
+
+    & p {
+      text-align: left;
+      font-size: 1.4rem;
+      margin-bottom: 0rem;
+      font-weight: $f-w-300;
+
+      @include respond(lg) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $grayish-blue;
+  }
+}

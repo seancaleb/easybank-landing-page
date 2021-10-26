@@ -1,0 +1,124 @@
+.footer {
+  margin-bottom: 4rem;
+  @include flex(column, center, $gap: 4rem);
+
+  @include respond(lg) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 15rem;
+
+    & div:first-child {
+      @include flex(column, $justify: space-between);
+    }
+  }
+
+  &-full {
+    background-color: $dark-blue;
+    @include wrapper(4rem, 4rem);
+
+    @include respond(lg) {
+      @include wrapper(5rem, 5rem);
+    }
+  }
+
+  &__logo {
+    @include flex(row, center, center);
+    margin-bottom: 3.5rem;
+
+    @include respond(lg) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__nav {
+    flex: 4;
+    &-list {
+      display: grid;
+      gap: 2rem;
+      text-align: center;
+
+      @include respond(lg) {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+      }
+    }
+
+    &-item {
+    }
+
+    &-link {
+      font-size: 1.6rem;
+      color: rgba($light-grayish-blue, 0.75);
+      font-weight: $f-w-300;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+
+      @include respond(lg) {
+        &:hover {
+          color: $lime-green;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    @include flex(column, center, $gap: 3.5rem);
+
+    @include respond(lg) {
+      align-items: flex-end;
+      flex: 3;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright,
+  &__coded-by {
+    font-size: 1.6rem;
+    color: rgba($light-grayish-blue, 0.5);
+    font-weight: $f-w-300;
+    line-height: 1.6;
+    text-align: center;
+
+    @include respond(lg) {
+      text-align: right;
+    }
+  }
+
+  &__coded-by {
+    display: block;
+    line-height: 1.8;
+  }
+}
+
+.social {
+  @include flex(row, $gap: 1.5rem);
+  @include respond(lg) {
+    gap: 1.2rem;
+  }
+
+  &__item {
+  }
+  &__link {
+    & svg {
+      width: 3rem;
+      height: 3rem;
+
+      @include respond(lg) {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+  }
+}
+
+.icon__fill {
+  fill: $white;
+  transition: fill 0.3s ease-in-out;
+}
+
+@include respond(lg) {
+  .social__item:hover .icon__fill {
+    fill: $lime-green;
+  }
+}

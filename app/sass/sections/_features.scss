@@ -1,0 +1,69 @@
+.features {
+  @include flex(column, $gap: 6rem);
+
+  &-full {
+    background-color: $light-grayish-blue;
+    @include wrapper(7rem, 7rem);
+
+    @include respond(lg) {
+      @include wrapper(11rem, 11rem);
+    }
+  }
+
+  &__text {
+    & h2 {
+      @include respond(lg) {
+        text-align: left;
+      }
+    }
+    & p {
+      max-width: 65rem;
+      margin-inline: auto;
+
+      @include respond(lg) {
+        margin-inline: unset;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 4rem;
+
+    @include respond(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  &__item {
+    @include flex(column, center, $gap: 3rem);
+
+    @include respond(lg) {
+      align-items: flex-start;
+      gap: 4rem;
+    }
+
+    & div:first-child {
+      @include flex($align: center);
+    }
+  }
+
+  &__content {
+    @include flex(column, center, $gap: 3rem);
+
+    @include respond(lg) {
+      align-items: flex-start;
+      gap: 3rem;
+    }
+
+    & p {
+      margin-bottom: 0rem;
+      max-width: 50rem;
+    }
+  }
+}
